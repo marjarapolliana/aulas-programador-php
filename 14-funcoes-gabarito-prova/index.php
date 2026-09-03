@@ -1,33 +1,39 @@
 <?php
+function calcularValorEmEstoque(float $quantidade, float $precoUnitario){
+   return $quantidade * $precoUnitario;
+   
+}
 
-/* =====================================================================
-   GABARITO — Lista de Exercícios: Funções
-   Professor: Pedro Leandro | SENAC Caxias — Programador Web
-   ===================================================================== */
+$resultado = calcularValorEmEstoque(10, 219.90);
+echo $resultado;
 
+function formatarValorGasto(float $valor){
+   return "R$ " . number_format($valor, 2, ",", ",") . " reais";
+}
 
-/* ---------------------------------------------------------------------
-   QUESTÃO 1 — Sistema de Estoque
-   Calcula o valor total de um produto em estoque (quantidade x preço).
-   --------------------------------------------------------------------- */
+echo formatarValorGasto(200);
+echo formatarValorGasto(3500);
 
-
-
-/* ---------------------------------------------------------------------
-   QUESTÃO 2 — Sistema Financeiro Pessoal
-   Formata um valor numérico no padrão brasileiro de dinheiro,
-   usando a função nativa number_format().
-   --------------------------------------------------------------------- */
-
-
-
+   
 /* ---------------------------------------------------------------------
    QUESTÃO 3 — Biblioteca Municipal
    Calcula a multa por atraso na devolução de um livro.
    Os 3 primeiros dias são tolerados sem cobrança.
    Cada dia de atraso além disso custa R$ 1,00.
    --------------------------------------------------------------------- */
+function calcularMulta(int $quantidadeDeDiasAtrasado){
 
+const DIAS_TOLERADOS = 3;
+
+if(quantidadeDeDiasAtrasado <= DIAS_TOLERADOS){
+   return 0;
+}
+
+$diasCobrados = $quantidadeDeDiasAtrasado - DIAS_TOLERADOS;
+$valorDaMulta = $diasCobrados * 1.00;
+
+return $valorDaMulta;
+}
 
 
 /* ---------------------------------------------------------------------
